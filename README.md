@@ -12,7 +12,7 @@ BiocManager::install(c("Biobase", "KEGGREST", "DESeq2", "ComplexHeatmap", "qvalu
 
 
 From CRAN:
-install.packages("clustr", "readr", "dplyr", "knitr", "circlize", "grDevices", "colorRamps", "mgcv", "ggplot2", "ggsignif", "emmeans", "tidyr", "plyr")
+install.packages("cluster", "readr", "dplyr", "knitr", "circlize", "grDevices", "colorRamps", "mgcv", "ggplot2", "ggsignif", "emmeans", "tidyr", "plyr")
 
 
 
