@@ -1,0 +1,3 @@
+"0","# get n count per treatment"
+"0","ndata <- ddply(dat, c(""Algae"", ""Time_post_infection"", ""Repeat.Date.""), summarise, N = length(""Larvae"")) "
+"0","head(ndata)"

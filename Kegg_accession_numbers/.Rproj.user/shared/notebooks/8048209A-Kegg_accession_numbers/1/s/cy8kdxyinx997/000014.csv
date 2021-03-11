@@ -1,0 +1,5 @@
+"0","library(KEGGREST)"
+"0","XP2epa <- keggConv(""ncbi-proteinid"", ""epa"")"
+"0",""
+"0","XP2epa <- as.data.frame(as.matrix(XP2epa))"
+"0","head(XP2epa)"

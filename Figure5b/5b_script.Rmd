@@ -1,0 +1,103 @@
+---
+title: "Figure 5b"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+```{r}
+library(readxl) 
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(plyr)
+library(dplyr)
+```
+
+```{r}
+#load in raw data
+dat <- data.frame(read_csv("5b_data.csv"))
+head(dat)
+```
+```{r}
+#clean up raw data
+dat$Algae <- factor(dat$Algae, levels= c("SSB01", "M. gaditana", "N. oculata", "C. velia"))
+dat$Treatment <- factor(dat$Treatment)
+dat$Repeat.Date. <- factor(as.character(dat$Repeat.Date.))
+dat$Number.of.Symbionts <- ifelse(dat$Number.of.Symbionts>1,1,dat$Number.of.Symbionts)
+dat$Well_ID <- factor(dat$Well_ID)
+head(dat)
+```
+```{r}
+#model data with generalised linear mixed modes
+summary <- data.frame()
+
+for(i in unique(dat$Algae))
+{
+#i <-  unique(dat$Algae)[1]
+  Dat <- droplevels(dat[dat$Algae==i,])
+  ##Regression model:
+  mod <- gam(Number.of.Symbionts ~ Treatment + s(Repeat.Date.,bs='re') + s(Well_ID,bs='re'),data=Dat,family=binomial())
+  S <- summary(mod)$p.table
+if(S[2,4]>0.1)
+  {
+    p <- ""
+  }
+if(S[2,4]<0.1)
+  {
+    p  <- ""
+  }
+if(S[2,4]<0.05)
+  {
+    p  <- "*"
+  }
+if(S[2,4]<0.01)
+  {
+    p  <- "**"
+  }
+if(S[2,4]<0.001)
+  {
+    p  <- "***"
+  }
+newline <- data.frame(Algae=i,outcome=S[1,1],SE=S[1,2],type="control",p=NA,pvalue=NA)
+  summary <- rbind(summary,newline)
+newline <- data.frame(Algae=i,outcome=S[1,1] + S[2,1],SE=S[2,2],type="LPS",p=p, pvalue=S[2,4])
+  summary <- rbind(summary,newline)
+}
+
+summary$up <- plogis(summary$outcome + 1.96*summary$SE)
+summary$down <- plogis(summary$outcome - 1.96*summary$SE)
+summary$outcome <- plogis(summary$outcome)
+
+summary
+write_csv(summary, "5b_summary.csv")
+```
+
+
+```{r}
+summary$Algae <- factor(summary$Algae, levels= c("SSB01", "M. gaditana", "N. oculata", "C. velia"))
+#Plot graph
+P1<-ggplot(data = summary,aes(x = Algae, y = outcome, group = type)) +
+  geom_bar(stat = "identity", width = 0.75, size=1.5, position =  position_dodge(width = 0.8), fill = c("#FF2500",alpha("#FF2500",0.6)))   +
+  geom_errorbar(aes(ymin=down, ymax=up), width=.5, position =position_dodge(.75)) +
+  geom_text(data = summary, aes(x=Algae,y=0.95),label=summary$p,size=6) +
+  theme_classic() +
+  labs(x = "", y = "Fraction of infected larave") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0,1),labels = scales::number_format(accuracy = 0.01))
+plot(P1)
+ggsave("Figure_5b.pdf",width=5.75,height=11,units="cm")
+```
+
+```{r}
+# get n count per treatment
+ndat <- ddply(dat, c("Algae", "Treatment", "Repeat.Date."), summarise,
+               N    = length(Larvae))
+n_Figure <-  ddply(ndat, c("Algae", "Treatment"), summarise,
+               N    = length(Repeat.Date.))
+n_Figure
+write_csv(n_Figure, "5b_n.csv")
+````

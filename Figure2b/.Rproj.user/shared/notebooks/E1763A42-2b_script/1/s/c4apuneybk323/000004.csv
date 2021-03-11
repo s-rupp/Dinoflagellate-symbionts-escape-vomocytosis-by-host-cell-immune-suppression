@@ -1,0 +1,9 @@
+"0","#model pairwise comparison (Tukey)"
+"0","mod.emm.s <-  emmeans(mod, ""Algae"")"
+"2","NOTE: A nesting structure was detected in the fitted model:
+    Well_ID %in% Algae
+"
+"0","pairwise <- data.frame(pairs(mod.emm.s))"
+"0","pairwise$label <- ifelse(pairwise$p.value < 0.001, ""***"",ifelse(pairwise$p.value < 0.01, ""**"",ifelse(pairwise$p.value < 0.05, ""*"","""" )))"
+"0","pairwise <- pairwise %>%  separate(contrast, c(""start"", ""end""), "" - "")"
+"0","head(pairwise)"

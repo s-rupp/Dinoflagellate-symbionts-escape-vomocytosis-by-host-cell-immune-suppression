@@ -1,0 +1,32 @@
+"0","```r
+
+pv_ko.out <-   pathview(gene.data = ko_mat[, c(2,3,4)], 
+                      pathway.id = my_pathways,  #pathways of interest
+                      species = \"ko\", # ko
+                      out.suffix = \"Centered_Sym_Apo_Mg\", 
+                      limit = list(gene = 7, cpd = 1), 
+                      gene.idtype = \"kegg\",
+                      kegg.native = TRUE, 
+                      low = list(gene = \"firebrick3\", cpd = \"firebrick3\"), #set colors
+                      mid = list(gene = \"gray\", cpd = \"gray\"),  # set colors
+                      high = list(gene = \"dodgerblue3\", cpd = \"dodgerblue3\")) # set colors
+```"
+"1","Note: Only KEGG ortholog gene ID is supported, make sure it looks like \"K01488\"!
+Note: Mapping via KEGG gene ID (not Entrez) is supported for this species,
+it looks like \"K01488\"!
+Info: Working in directory /Users/sebastian/Documents/Arbeit/GuseLab/R!/NewPathview
+Info: Writing image file ko04064.Centered_Sym_Apo_Mg.multi.png
+"
+"0","```r
+pv_ko.out <- pathview(gene.data = ko_mat[, c(6,7,10)], 
+                      pathway.id = my_pathways,  #pathways of interest
+                      species = \"ko\", 
+                      out.suffix = \"Significant_Sym-vs-Apo_Sym-vs-Sym-Apo_Sym-vs-Mg\", # ko
+                      limit = list(gene = 7, cpd = 1), 
+                      gene.idtype = \"kegg\",
+                      kegg.native = TRUE, 
+                      low = list(gene = \"firebrick3\", cpd = \"firebrick3\"), #set colors
+                      mid = list(gene = \"gray\", cpd = \"gray\"),  # set colors
+                      high = list(gene = \"dodgerblue3\", cpd = \"dodgerblue3\")) # set colors
+
+```"

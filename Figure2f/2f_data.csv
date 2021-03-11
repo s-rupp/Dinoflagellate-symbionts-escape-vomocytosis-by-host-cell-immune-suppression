@@ -1,0 +1,150 @@
+"Repeat(Date)","Algae","Treatment","Well_ID","Larvae","uptakes"
+"I","SSB01","No","S1","1",0
+"I","SSB01","No","S1","2",0
+"I","SSB01","No","S1","3",0
+"I","SSB01","No","S1","4.1",0
+"I","SSB01","No","S1","4-2",0
+"I","SSB01","No","S1","5",1
+"I","SSB01","No","S1","6",0
+"I","SSB01","No","S1","7-1",0
+"I","SSB01","No","S1","7-2",0
+"I","SSB01","No","S1","8",0
+"I","SSB01","No","S1","9",0
+"I","SSB01","No","S1","10_1",0
+"I","SSB01","No","S1","10-2",0
+"II","SSB01","No","S2","1",0
+"II","SSB01","No","S2","2",0
+"II","SSB01","No","S2","3",0
+"II","SSB01","No","S2","4",0
+"II","SSB01","No","S2","5",0
+"II","SSB01","No","S2","6",0
+"II","SSB01","No","S2","8",0
+"II","SSB01","No","S2","9",0
+"II","SSB01","No","S2","10",0
+"III","SSB01","No","S3","3",0
+"III","SSB01","No","S3","4",0
+"III","SSB01","No","S3","5",0
+"III","SSB01","No","S3","6",0
+"III","SSB01","No","S3","7",0
+"III","SSB01","No","S3","8",0
+"III","SSB01","No","S3","9",0
+"III","SSB01","No","S3","10",0
+"2020-08-28","SSB01","No","S4","1",0
+"2020-08-28","SSB01","No","S4","2",0
+"2020-08-28","SSB01","No","S4","3-1",0
+"2020-08-28","SSB01","No","S4","3-2",0
+"2020-08-28","SSB01","No","S4","4",0
+"2020-08-28","SSB01","No","S4","5",2
+"2020-08-28","SSB01","No","S4","6",0
+"2020-08-28","SSB01","No","S4","7",0
+"2020-08-28","SSB01","No","S4","8",1
+"2020-08-28","SSB01","No","S4","9",0
+"I","M. gaditana","No","M1","1",1
+"I","M. gaditana","No","M1","2",0
+"I","M. gaditana","No","M1","4",2
+"I","M. gaditana","No","M1","5",2
+"I","M. gaditana","No","M1","6",7
+"I","M. gaditana","No","M1","7",4
+"I","M. gaditana","No","M1","8",6
+"I","M. gaditana","No","M1","9-1",0
+"I","M. gaditana","No","M1","9-2",0
+"I","M. gaditana","No","M1","10-1",0
+"I","M. gaditana","No","M1","10-2",0
+"II","M. gaditana","No","M2","1",3
+"II","M. gaditana","No","M2","2",0
+"II","M. gaditana","No","M2","3-1",1
+"II","M. gaditana","No","M2","3-2",1
+"II","M. gaditana","No","M2","5",7
+"II","M. gaditana","No","M2","6",1
+"II","M. gaditana","No","M2","7-1",0
+"II","M. gaditana","No","M2","7-2",0
+"II","M. gaditana","No","M2","8",2
+"II","M. gaditana","No","M2","9-1",0
+"II","M. gaditana","No","M2","9-2",0
+"II","M. gaditana","No","M2","10",1
+"III","M. gaditana","No","M3","2",0
+"III","M. gaditana","No","M3","3-1",0
+"III","M. gaditana","No","M3","3-2",5
+"III","M. gaditana","No","M3","4",5
+"III","M. gaditana","No","M3","6-1",6
+"III","M. gaditana","No","M3","6-2",0
+"III","M. gaditana","No","M3","7-1",4
+"III","M. gaditana","No","M3","7-2",0
+"III","M. gaditana","No","M3","8-1",0
+"III","M. gaditana","No","M3","8-2",0
+"2020-10-13","M. gaditana","No","M4","1",0
+"2020-10-13","M. gaditana","No","M4","2",0
+"2020-10-13","M. gaditana","No","M4","3",1
+"2020-10-13","M. gaditana","No","M4","4",1
+"2020-10-13","M. gaditana","No","M4","5-1",1
+"2020-10-13","M. gaditana","No","M4","5-2",0
+"2020-10-13","M. gaditana","No","M4","6-1",1
+"2020-10-13","M. gaditana","No","M4","6-2",1
+"2020-10-13","M. gaditana","No","M4","7-1",1
+"2020-10-13","M. gaditana","No","M4","7-2",1
+"2020-10-13","M. gaditana","No","M4","8",0
+"2020-10-13","M. gaditana","No","M4","9",1
+"2020-10-13","M. gaditana","No","M4","10",1
+"I","N. oculata","No","N1","1",4
+"I","N. oculata","No","N1","2",4
+"I","N. oculata","No","N1","4",4
+"I","N. oculata","No","N1","6",0
+"I","N. oculata","No","N1","7",2
+"I","N. oculata","No","N1","9",1
+"II","N. oculata","No","N2","1",0
+"II","N. oculata","No","N2","2",4
+"II","N. oculata","No","N2","3",2
+"II","N. oculata","No","N2","4",2
+"II","N. oculata","No","N2","5",0
+"II","N. oculata","No","N2","6",0
+"II","N. oculata","No","N2","8",0
+"II","N. oculata","No","N2","9",0
+"II","N. oculata","No","N2","10",0
+"III","N. oculata","No","N3","3",0
+"III","N. oculata","No","N3","4",0
+"III","N. oculata","No","N3","5",0
+"III","N. oculata","No","N3","6-1",0
+"III","N. oculata","No","N3","6-2",0
+"III","N. oculata","No","N3","7",1
+"III","N. oculata","No","N3","8",1
+"III","N. oculata","No","N3","9",1
+"III","N. oculata","No","N3","10",1
+"2020-10-08","N. oculata","No","N4","1",0
+"2020-10-08","N. oculata","No","N4","2-!",0
+"2020-10-08","N. oculata","No","N4","2-2",0
+"2020-10-08","N. oculata","No","N4","3",0
+"2020-10-08","N. oculata","No","N4","4",0
+"2020-10-08","N. oculata","No","N4","5",0
+"2020-10-08","N. oculata","No","N4","7",0
+"2020-10-08","N. oculata","No","N4","8",0
+"2020-10-08","N. oculata","No","N4","9",2
+"2020-10-08","N. oculata","No","N4","10",0
+"I","C. velia","No","C1","4-1",4
+"I","C. velia","No","C1","4-2",0
+"I","C. velia","No","C1","5",1
+"I","C. velia","No","C1","6",0
+"I","C. velia","No","C1","7-1",0
+"I","C. velia","No","C1","7-2",0
+"I","C. velia","No","C1","8",0
+"I","C. velia","No","C1","9",0
+"I","C. velia","No","C1","10",0
+"II","C. velia","No","C2","3",0
+"II","C. velia","No","C2","4",0
+"II","C. velia","No","C2","5",0
+"II","C. velia","No","C2","6",0
+"II","C. velia","No","C2","7",0
+"II","C. velia","No","C2","8",2
+"II","C. velia","No","C2","9",0
+"III","C. velia","No","C3","4",0
+"III","C. velia","No","C3","8",0
+"III","C. velia","No","C3","9-1",0
+"III","C. velia","No","C3","9-2",0
+"IV","C. velia","No","C4","1",0
+"IV","C. velia","No","C4","2",0
+"IV","C. velia","No","C4","3",0
+"IV","C. velia","No","C4","4",0
+"IV","C. velia","No","C4","5",0
+"IV","C. velia","No","C4","6",2
+"IV","C. velia","No","C4","8",0
+"IV","C. velia","No","C4","9",4
+"IV","C. velia","No","C4","10",0

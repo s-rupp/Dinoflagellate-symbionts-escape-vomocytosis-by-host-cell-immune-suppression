@@ -1,0 +1,6 @@
+"0","# get n count per treatment"
+"0","ndat <- ddply(dat, c(""Algae"", ""Treatment"", ""Repeat.Date.""), summarise,"
+"0","               N    = length(Larvae))"
+"0","n_Figure <-  ddply(ndat, c(""Algae"", ""Treatment""), summarise,"
+"0","               N    = length(Repeat.Date.))"
+"0","n_Figure"

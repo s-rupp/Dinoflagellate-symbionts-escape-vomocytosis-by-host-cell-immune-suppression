@@ -1,0 +1,3 @@
+"0","#pathview.csv from KNIME folder ""Figure4_RNA_seq"""
+"0","ko_test <- read.csv(""pathview.csv"", sep = "","",header = TRUE, row.names = 1)"
+"0","as.matrix(ko_test) -> ko_mat"

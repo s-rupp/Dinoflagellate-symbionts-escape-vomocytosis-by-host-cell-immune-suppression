@@ -1,0 +1,8 @@
+"0","result <- data.frame(mod.emm.s)"
+"0","summary <- data.frame(Algae=result$Algae)"
+"0","#Transform data (linkfunction)"
+"0","summary$Time_post_infection <- as.numeric(as.character(result$Time_post_infection))"
+"0","summary$mean<- plogis(result$emmean)"
+"0","summary$down <- plogis(result$lower.CL)"
+"0","summary$up <- plogis(result$upper.CL)"
+"0","summary"

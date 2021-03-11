@@ -1,0 +1,5 @@
+"0","```r
+#pathview.csv from KNIME folder \"RNA_seq\"
+ko_test <- read.csv(\"pathview.csv\", sep = \",\",header = TRUE, row.names = 1)
+as.matrix(ko_test) -> ko_mat
+```"

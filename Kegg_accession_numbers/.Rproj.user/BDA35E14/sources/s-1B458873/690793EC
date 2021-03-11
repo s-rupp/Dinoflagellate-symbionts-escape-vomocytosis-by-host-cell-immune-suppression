@@ -1,0 +1,26 @@
+{
+    "id": "690793EC",
+    "path": "~/Documents/Arbeit/GuseLab/R!/Kegg_accession_numbers/Kegg_accession_numbers.Rmd",
+    "project_path": "Kegg_accession_numbers.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1614700506815.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "chunk_output_type": "inline",
+        "cursorPosition": "2,20",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1614701247,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1614701247136,
+    "read_only": false,
+    "read_only_alternatives": []
+}

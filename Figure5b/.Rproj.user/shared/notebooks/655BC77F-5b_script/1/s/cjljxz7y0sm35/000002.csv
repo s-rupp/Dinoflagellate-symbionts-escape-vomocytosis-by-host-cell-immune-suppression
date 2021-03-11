@@ -1,0 +1,15 @@
+"0","#load in raw data"
+"0","dat <- data.frame(read_csv(""5b_data.csv""))"
+"2","
+[36m──[39m [1m[1mColumn specification[1m[22m [36m───────────────────────────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  `Repeat(Date)` = [34mcol_datetime(format = """")[39m,
+  Algae = [31mcol_character()[39m,
+  Treatment = [31mcol_character()[39m,
+  Well_ID = [31mcol_character()[39m,
+  Larvae = [32mcol_double()[39m,
+  `Number of Symbionts` = [32mcol_double()[39m
+)
+
+"
+"0","head(dat)"

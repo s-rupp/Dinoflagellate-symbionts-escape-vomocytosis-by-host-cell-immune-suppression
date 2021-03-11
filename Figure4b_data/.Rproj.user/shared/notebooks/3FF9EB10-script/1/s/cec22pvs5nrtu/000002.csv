@@ -1,0 +1,20 @@
+"0","```r
+# run with ko numbers centred values---------------------
+#\"04150\" = mTOR signaling
+# 04630 Jak-STAT signaling pathway (23)
+# 04064 NF-kappa B signaling pathway (28)
+# 04668 TNF signaling pathway (35)
+# 04350 TGF-beta signaling pathway (38)
+# 04010 MAPK signaling pathway (110)
+# 04620 Toll-like receptor signaling pathway (23)
+# 00480 Glutathion pathway
+# 04610 Complement and coagulation cascades
+# 04621 NOD-like receptor
+# 04625 C-type lectin receptor signaling pathway
+# 05145  	Toxoplasmosis
+
+my_pathways <- c(\"04064\", \"04620\")
+#setwd(\"../RNA_seq/\") # change to working directory
+
+
+```"

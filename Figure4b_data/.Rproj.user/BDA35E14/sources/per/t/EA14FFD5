@@ -1,0 +1,26 @@
+{
+    "id": "EA14FFD5",
+    "path": "~/Documents/Arbeit/GuseLab/R!/Figure4b_data/4b_background_data_script.Rmd",
+    "project_path": "4b_background_data_script.Rmd",
+    "type": "r_markdown",
+    "hash": "360667422",
+    "contents": "",
+    "dirty": false,
+    "created": 1615306621319.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "chunk_output_type": "inline",
+        "cursorPosition": "9,17",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1615306867,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1615306867978,
+    "read_only": false,
+    "read_only_alternatives": []
+}

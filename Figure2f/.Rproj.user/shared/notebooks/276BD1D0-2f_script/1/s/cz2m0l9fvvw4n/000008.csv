@@ -1,0 +1,7 @@
+"0","# prepair for geom_signif"
+"0","signi <- data.frame(start = factor(pairwise$start))"
+"0","signi$end <- factor(pairwise$end)"
+"0","signi$label <- factor(pairwise$label)"
+"0","signi <- filter(signi, label != """")"
+"0","signi$y <- seq(7.75, length.out=nrow(signi), by=-0.25)"
+"0","signi"

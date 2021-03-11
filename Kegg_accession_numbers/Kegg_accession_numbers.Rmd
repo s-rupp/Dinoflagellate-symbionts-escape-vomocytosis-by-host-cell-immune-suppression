@@ -1,0 +1,26 @@
+---
+title: "Kegg accession numbers"
+output: pdf_document
+---
+
+```{r}
+library(KEGGREST)
+library(tidyverse)
+
+
+epa2ko <- keggLink("ko", "epa")
+
+epa2ko <- as.data.frame(as.matrix(epa2ko))
+head(epa2ko)
+
+write.csv(epa2ko, "epa2ko.csv")
+```
+```{r}
+library(KEGGREST)
+XP2epa <- keggConv("ncbi-proteinid", "epa")
+
+XP2epa <- as.data.frame(as.matrix(XP2epa))
+head(XP2epa)
+
+write.csv(XP2epa, "XP2epa.csv")
+```

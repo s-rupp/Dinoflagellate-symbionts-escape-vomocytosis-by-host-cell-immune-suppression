@@ -1,0 +1,25 @@
+"0","#load in raw data"
+"0","dat <- data.frame(read_csv(""3c_data.csv""))"
+"2","
+[36m──[39m [1m[1mColumn specification[1m[22m [36m───────────────────────────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  `Repeat(Date)` = [34mcol_date(format = """")[39m,
+  Algae = [31mcol_character()[39m,
+  Treatment = [31mcol_character()[39m,
+  Well_ID = [31mcol_character()[39m,
+  Larvae = [31mcol_character()[39m,
+  Time_to_expulsion = [32mcol_double()[39m
+)
+
+"
+"2","14 parsing failures.
+row          col   expected     actual          file
+ 43 Repeat(Date) valid date 2020/11/31 '3c_data.csv'
+ 44 Repeat(Date) valid date 2020/11/31 '3c_data.csv'
+ 45 Repeat(Date) valid date 2020/11/31 '3c_data.csv'
+ 46 Repeat(Date) valid date 2020/11/31 '3c_data.csv'
+ 47 Repeat(Date) valid date 2020/11/31 '3c_data.csv'
+... ............ .......... .......... .............
+See problems(...) for more details.
+"
+"0","head(dat)"

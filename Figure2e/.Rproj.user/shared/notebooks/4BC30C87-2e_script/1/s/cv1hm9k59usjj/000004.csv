@@ -1,0 +1,8 @@
+"0","#clean up results for graph"
+"0","result <- data.frame(mod.emm.s)"
+"0","results <- data.frame(Algae=result$Algae)"
+"0","#Transform data (linkfunction)"
+"0","results$mean<- exp(result$emmean)"
+"0","results$down <- exp(result$lower.CL)"
+"0","results$up <- exp(result$upper.CL)"
+"0","head(results)"

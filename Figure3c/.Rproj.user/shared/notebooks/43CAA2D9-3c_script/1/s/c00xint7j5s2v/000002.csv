@@ -1,0 +1,7 @@
+"0","#clean up raw data"
+"0","dat$Algae <- factor(dat$Algae, levels= c(""SSB01"", ""M. gaditana"", ""N. oculata"", ""C. velia""))"
+"0","dat$Treatment <- factor(dat$Treatment)"
+"0","dat$Repeat.Date. <- factor(as.character(dat$Repeat.Date.))"
+"0","dat$Well_ID <- factor(dat$Well_ID)"
+"0","dat$Time_to_expulsion <- ifelse(dat$Time_to_expulsion<720,1,0)"
+"0","head(dat)"

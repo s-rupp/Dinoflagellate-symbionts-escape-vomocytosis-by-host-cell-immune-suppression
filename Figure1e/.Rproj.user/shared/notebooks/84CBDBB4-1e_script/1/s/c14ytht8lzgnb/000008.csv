@@ -1,0 +1,2 @@
+"0","n_Figure <- ddply(ndata, c(""Algae"", ""Time_post_infection""), summarise, N = length(Repeat.Date.))"
+"0","n_Figure"

@@ -1,0 +1,227 @@
+library(readxl)
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(dplyr)
+dat <- data.frame(read_csv("1d+e_data.csv"))
+head(dat)
+dat$Algae <- factor(dat$Algae, levels= c("SSB01", "M. gaditana", "N. oculata", "C. velia"))
+dat$Well_ID <- factor(dat$Well_ID)
+dat$Repeat.Date. <- factor(as.character(dat$Repeat.Date.))
+dat$infected <- ifelse(dat$Number.of.Symbionts>=1,1,0)
+head(dat)
+#model data
+mod <- gam(Number.of.Symbionts ~ Algae + Time_post_infection + s(Well_ID, bs="re"),data=dat,family=nb())
+S <- summary(mod)$p.table
+S
+#model pairwise comparision (Tukey)
+mod.emm.s <-  emmeans(mod, c("Algae","Time_post_infection"))
+pairwise <- data.frame(pairs(mod.emm.s))
+pairwise$label <- ifelse(pairwise$p.value < 0.001, "***",ifelse(pairwise$p.value < 0.01, "**",ifelse(pairwise$p.value < 0.05, "*","" )))
+pairwise <- pairwise %>%  separate(contrast, c("start", "end"), " - ")
+pairwise <- pairwise %>%  separate(start, c("Algae_1", "t.p.i_1"),  sep="\\s+(?=\\S*$)")
+pairwise <- pairwise %>%  separate(end, c("Algae_2", "t.p.i_2"),  sep="\\s+(?=\\S*$)")
+head(pairwise)
+write_csv(pairwise, "1e_pairwise.csv")
+result <- data.frame(mod.emm.s)
+summary <- data.frame(Algae=result$Algae)
+#Transform data (linkfunction)
+summary$Time_post_infection <- factor(result$Time_post_infection,levels= c("1","2","3","6","10"))
+summary$mean<- exp(result$emmean)
+summary$down <- exp(result$lower.CL)
+summary$up <- exp(result$upper.CL)
+write_csv(pairwise, "1e_summary.csv")
+P1<-ggplot(data = summary) +
+geom_bar(aes(x = Time_post_infection, y = mean, color = Algae, fill = Algae),stat = "identity",show.legend = FALSE)+ #,color= c("#FF2500","#E0D532","#008D58","#0067A2")
+facet_wrap(~ Algae, nrow = 1)+
+geom_errorbar(aes(x = Time_post_infection, group=Algae, y = mean, ymin=down, ymax=up), width=.5, show.legend = FALSE) +
+theme_classic() +
+theme(strip.background = element_blank(), strip.text = element_blank())+
+scale_color_manual(breaks = c("SSB01", "M. gaditana", "N. oculata", "C. velia"),
+values=c("#FF2500","#E0D532","#008D58","#0067A2")) +
+scale_fill_manual(breaks = c("SSB01", "M. gaditana", "N. oculata", "C. velia"),
+values=c("#FF2500","#E0D532","#008D58","#0067A2")) +
+labs(x = "Time post infection (d)", y = "Algae per larvae") +
+scale_y_continuous(expand = c(0, 0), limits = c(0,6))
+plot(P1)
+ggsave("Figure 1e.pdf",width=16,height=11,units="cm")
+P1<-ggplot(data = summary) +
+geom_bar(aes(x = Time_post_infection, y = mean, color = Algae, fill = Algae),stat = "identity",show.legend = FALSE)+ #,color= c("#FF2500","#E0D532","#008D58","#0067A2")
+facet_wrap(~ Algae, nrow = 1)+
+geom_errorbar(aes(x = Time_post_infection, group=Algae, y = mean, ymin=down, ymax=up), width=.5, show.legend = FALSE) +
+theme_classic() +
+theme(strip.background = element_blank(), strip.text = element_blank())+
+scale_color_manual(breaks = c("SSB01", "M. gaditana", "N. oculata", "C. velia"),
+values=c("#FF2500","#E0D532","#008D58","#0067A2")) +
+scale_fill_manual(breaks = c("SSB01", "M. gaditana", "N. oculata", "C. velia"),
+values=c("#FF2500","#E0D532","#008D58","#0067A2")) +
+labs(x = "Time post infection (d)", y = "Algae per larvae") +
+scale_y_continuous(expand = c(0, 0), limits = c(0,6))
+plot(P1)
+ggsave("Figure 1e.pdf",width=16,height=11,units="cm")
+result <- data.frame(mod.emm.s)
+summary <- data.frame(Algae=result$Algae)
+#Transform data (linkfunction)
+summary$Time_post_infection <- factor(result$Time_post_infection,levels= c("1","2","3","6","10"))
+summary$mean<- exp(result$emmean)
+summary$down <- exp(result$lower.CL)
+summary$up <- exp(result$upper.CL)
+write_csv(pairwise, "1e_summary.csv")
+result <- data.frame(mod.emm.s)
+summary <- data.frame(Algae=result$Algae)
+#Transform data (linkfunction)
+summary$Time_post_infection <- factor(result$Time_post_infection,levels= c("1","2","3","6","10"))
+summary$mean<- exp(result$emmean)
+summary$down <- exp(result$lower.CL)
+summary$up <- exp(result$upper.CL)
+head(summary)
+write_csv(pairwise, "1e_summary.csv")
+library(readxl)
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(dplyr)
+dat <- data.frame(read_csv("1d+e_data.csv"))
+head(dat)
+dat$Algae <- factor(dat$Algae, levels= c("SSB01", "M. gaditana", "N. oculata", "C. velia"))
+dat$Well_ID <- factor(dat$Well_ID)
+dat$Time_post_infection <- facto(as.double(dat$Time_post_infection))
+library(readxl)
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(dplyr)
+dat <- data.frame(read_csv("1d+e_data.csv"))
+head(dat)
+dat$Algae <- factor(dat$Algae, levels= c("SSB01", "M. gaditana", "N. oculata", "C. velia"))
+dat$Well_ID <- factor(dat$Well_ID)
+dat$Time_post_infection <- factor(as.double(dat$Time_post_infection))
+dat$Repeat.Date. <- factor(as.character(dat$Repeat.Date.))
+dat$infected <- ifelse(dat$Number.of.Symbionts>=1,1,0)
+head(dat)
+#model data
+mod <- gam(Number.of.Symbionts ~ Algae + Time_post_infection + s(Well_ID, bs="re"),data=dat,family=nb())
+S <- summary(mod)$p.table
+S
+#model pairwise comparision (Tukey)
+mod.emm.s <-  emmeans(mod, c("Algae","Time_post_infection"))
+pairwise <- data.frame(pairs(mod.emm.s))
+pairwise$label <- ifelse(pairwise$p.value < 0.001, "***",ifelse(pairwise$p.value < 0.01, "**",ifelse(pairwise$p.value < 0.05, "*","" )))
+pairwise <- pairwise %>%  separate(contrast, c("start", "end"), " - ")
+pairwise <- pairwise %>%  separate(start, c("Algae_1", "t.p.i_1"),  sep="\\s+(?=\\S*$)")
+pairwise <- pairwise %>%  separate(end, c("Algae_2", "t.p.i_2"),  sep="\\s+(?=\\S*$)")
+head(pairwise)
+write_csv(pairwise, "1e_pairwise.csv")
+result <- data.frame(mod.emm.s)
+summary <- data.frame(Algae=result$Algae)
+#Transform data (linkfunction)
+summary$Time_post_infection <- factor(result$Time_post_infection,levels= c("1","2","3","6","10"))
+summary$mean<- exp(result$emmean)
+summary$down <- exp(result$lower.CL)
+summary$up <- exp(result$upper.CL)
+head(summary)
+write_csv(pairwise, "1e_summary.csv")
+P1<-ggplot(data = summary) +
+geom_bar(aes(x = Time_post_infection, y = mean, color = Algae, fill = Algae),stat = "identity",show.legend = FALSE)+ #,color= c("#FF2500","#E0D532","#008D58","#0067A2")
+facet_wrap(~ Algae, nrow = 1)+
+geom_errorbar(aes(x = Time_post_infection, group=Algae, y = mean, ymin=down, ymax=up), width=.5, show.legend = FALSE) +
+theme_classic() +
+theme(strip.background = element_blank(), strip.text = element_blank())+
+scale_color_manual(breaks = c("SSB01", "M. gaditana", "N. oculata", "C. velia"),
+values=c("#FF2500","#E0D532","#008D58","#0067A2")) +
+scale_fill_manual(breaks = c("SSB01", "M. gaditana", "N. oculata", "C. velia"),
+values=c("#FF2500","#E0D532","#008D58","#0067A2")) +
+labs(x = "Time post infection (d)", y = "Algae per larvae") +
+scale_y_continuous(expand = c(0, 0), limits = c(0,6))
+plot(P1)
+ggsave("Figure 1e.pdf",width=16,height=11,units="cm")
+View(dat)
+cdata <- ddply(dat, c("Algae", "Time_post_infection"), summarise,
+N    = length(change)
+)
+library(readxl)
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(dplyr)
+cdata <- ddply(dat, c("Algae", "Time_post_infection"), summarise,
+N    = length(change)
+)
+dat %>% group_by("Algae") #%>% do(data.frame(p=p, stats=quantile(.$age, probs=p))
+dat %>% group_by("Algae") %>% do(data.frame(n = count()))
+dat %>% group_by("Algae") %>% do(data.frame(n = count(Time_post_infection)))
+dat %>% group_by("Algae") %>% do(data.frame(n = count("Time_post_infection")))
+dat %>% group_by("Algae") %>% do(data.frame(n = count("Time_post_infection")))
+dat %>% group_by("Algae") %>% do(data.frame(n = count("Larvae")))
+dat %>% group_by("Algae") %>% do(data.frame(n = n("Larvae")))
+library(readxl)
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(dplyr)
+library(plyr)
+library(readxl)
+library(lubridate)
+library(mgcv)
+library(ggplot2)
+library(ggsignif)
+library(readr)
+library(emmeans)
+library(tidyr)
+library(plyr)
+library(dplyr)
+cdata <- ddply(dat, c("Algae", "Time_post_infection"), summarise,
+N    = length(change)
+)
+cdata <- ddply(dat, c("Algae", "Time_post_infection"), summarise,
+N    = length(Repeat.Date.)
+)
+cdata
+cdata <- ddply(dat, c("Algae", "Time_post_infection", "Well_ID"), summarise,
+N    = length(Repeat.Date.)
+)
+cdata
+cdata <- ddply(dat, c("Algae", "Time_post_infection", "Repeat.Date."), summarise,
+N    = length("Larvae")
+)
+n_Figure1e <- ddply(cdata, c("Algae", "Time_post_infection"), summarise,
+N    = length(Repeat.Date.)
+)
+n_Figure1e
+ndata <- ddply(dat, c("Algae", "Time_post_infection", "Repeat.Date."), summarise,
+N    = length("Larvae")
+)
+head(ndata)
+n_Figure1e <- ddply(ndata, c("Algae", "Time_post_infection"), summarise,
+N    = length(Repeat.Date.)
+)
+n_Figure1e
+ndata <- ddply(dat, c("Algae", "Time_post_infection", "Repeat.Date."), summarise,
+N    = length("Larvae")
+)
+head(ndata)
+n_Figure1e <- ddply(ndata, c("Algae", "Time_post_infection"), summarise,
+N    = length(Repeat.Date.)
+)
+n_Figure1e
+write_csv(n_Figure1e, "1e_n.csv")
